@@ -20,7 +20,7 @@ st.set_page_config(layout="wide")
 
 # Default map center coordinates (Mumbai Coordinates)
 DEFAULT_MAP_CENTER = [19.149636, 73.075294]
-CITY_LOCATIONS = {"Mumbai": [19.0760, 72.8777]}
+CITY_LOCATIONS = {"Mumbai": [19.1311, 72.8926]}
 
 
 def get_base64_image(path):
@@ -71,7 +71,7 @@ layer_colors = {
 
 exposure_vulnerability_colors = {
     # Inverted colormap (RdYlBu_r) # Inverted colormap (RdYlBu_r)
-    'Exposed Area': {'colormap': 'RdYlBu_r', 'low': 1, 'high': 0},
+    'Exposed Area': {'colormap': 'RdYlBu_r', 'low': 0, 'high': 100},
 }
 # Hazard layer colors
 hazard_layer_colors = {
@@ -447,6 +447,8 @@ def add_flood_frequency_layer(map_obj, raster_file, transparency_value=0.7):
 
         with rasterio.open(raster_file) as src:
             img = src.read(1).astype(np.float32)
+            # ✅ This line filters invalid extreme values
+            img[img > 1e20] = np.nan
 
             nodata = src.nodata
             if nodata is not None:
@@ -1595,6 +1597,15 @@ def main():
                 add_infrastructure_vulnerability_layer(
                     city_map, file_path, transparency_value=0.7)
 
+            elif exposure_layer == "Exposed Area":
+                load_vector(
+                    file_path,
+                    city_map,
+                    exposure_layer,
+                    color="#FF0000",   # Solid red
+                    opacity=0.7,
+                    dashed=False
+                )
             elif file_path.endswith(".shp"):
                 load_vector(file_path, city_map, exposure_layer)
             else:
