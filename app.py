@@ -19,7 +19,7 @@ import base64
 st.set_page_config(layout="wide")
 
 # Default map center coordinates (Mumbai Coordinates)
-DEFAULT_MAP_CENTER = [19.0760, 72.8777]
+DEFAULT_MAP_CENTER = [19.149636, 73.075294]
 CITY_LOCATIONS = {"Mumbai": [19.0760, 72.8777]}
 
 
@@ -71,7 +71,7 @@ layer_colors = {
 
 exposure_vulnerability_colors = {
     # Inverted colormap (RdYlBu_r) # Inverted colormap (RdYlBu_r)
-    'Exposed Area': {'colormap': 'RdYlBu_r', 'low': 0, 'high': 100},
+    'Exposed Area': {'colormap': 'RdYlBu_r', 'low': 1, 'high': 0},
 }
 # Hazard layer colors
 hazard_layer_colors = {
@@ -459,7 +459,7 @@ def add_flood_frequency_layer(map_obj, raster_file, transparency_value=0.7):
             if valid_data.size == 0:
                 st.warning(f"No valid data in raster: {raster_file}")
                 return
-            vmin, vmax = valid_data.min(), valid_data.max()
+            vmin, vmax = 0, 8
             if vmin == vmax:
                 st.warning(
                     f"Raster has no variation in data (min == max) in {raster_file}. Skipping.")
