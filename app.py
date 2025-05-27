@@ -71,7 +71,7 @@ layer_colors = {
 
 exposure_vulnerability_colors = {
     # Inverted colormap (RdYlBu_r) # Inverted colormap (RdYlBu_r)
-    'Exposed Area': {'colormap': 'RdYlBu_r', 'low': 0, 'high': 100},
+    'Exposed Area':  '#E64C00',  # Outline only, not dashed, no fill
 }
 # Hazard layer colors
 hazard_layer_colors = {
