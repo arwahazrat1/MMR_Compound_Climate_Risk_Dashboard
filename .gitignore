@@ -1,0 +1,35 @@
+# Ignore all auxiliary and temporary files
+*.aux
+*.ovr
+*.tfw
+*.tif.aux.xml
+*.lock
+*.log
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+env/
+venv/
+
+# VS Code settings
+.vscode/
+
+# Streamlit cache and logs
++ .streamlit/*.credentials.toml
++ .streamlit/*.cache/
+
+# Ignore PEM keys (sensitive files)
+*.pem
+
+# Include all files inside assets folder (but skip junk inside it)
+!assets/
+!assets/**
+
+# Optional: Ignore CSVs or ZIPs if temporary
+*.csv
+*.zip
