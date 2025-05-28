@@ -19,7 +19,7 @@ import base64
 st.set_page_config(layout="wide")
 
 # Default map center coordinates (Mumbai Coordinates)
-DEFAULT_MAP_CENTER = [19.149636, 73.075294]
+DEFAULT_MAP_CENTER = [19.149636, 73.075294], 10
 CITY_LOCATIONS = {"Mumbai": [19.1311, 72.8926]}
 
 
