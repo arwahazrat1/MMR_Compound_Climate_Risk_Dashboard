@@ -1551,7 +1551,7 @@ def get_extent_coordinates(extent, region=None):
 
     # Default case if no valid region
     else:
-        return [19.2385, 73.0666], 10  # Default coordinates if no valid region
+        return [19.2385, 74.0666], 10  # Default coordinates if no valid region
 
 
 def main():
