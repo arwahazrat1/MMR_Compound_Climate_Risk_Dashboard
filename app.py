@@ -1511,7 +1511,7 @@ def get_extent_coordinates(extent, region=None):
 
     # If the extent is for Mumbai Metropolitan Region (MMR)
     if extent == "MMR":
-        return [19.0760, 72.8777], 12  # Mumbai metropolitan region coordinates
+        return [19.0760, 72.8777], 10  # Mumbai metropolitan region coordinates
 
     # If the extent is for Urban Local Body (ULB)
     elif extent == "Urban Local Body" and region:
@@ -1551,7 +1551,7 @@ def get_extent_coordinates(extent, region=None):
 
     # Default case if no valid region
     else:
-        return [19.1311, 72.8926], 12  # Default coordinates if no valid region
+        return [19.1126, 73.0179], 12  # Default coordinates if no valid region
 
 
 def main():
